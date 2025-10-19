@@ -1,0 +1,50 @@
+.darkveil-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.darkveil-fallback {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(120, 100, 255, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255, 100, 200, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 40% 40%, rgba(100, 255, 200, 0.1) 0%, transparent 50%),
+              linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+  background-size: 200% 200%, 200% 200%, 200% 200%, 100% 100%;
+  animation: backgroundMove 6s ease-in-out infinite alternate,
+             backgroundPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 0%, 100% 100%, 50% 50%, center;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    background-position: 100% 50%, 0% 50%, 25% 75%, center;
+    transform: scale(1.05) rotate(1deg);
+  }
+  100% {
+    background-position: 50% 100%, 50% 0%, 75% 25%, center;
+    transform: scale(1) rotate(-1deg);
+  }
+}
+
+@keyframes backgroundPulse {
+  0% {
+    filter: brightness(0.8) hue-rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    filter: brightness(1.2) hue-rotate(15deg);
+    opacity: 1;
+  }
+  100% {
+    filter: brightness(0.8) hue-rotate(30deg);
+    opacity: 0.9;
+  }
+}
